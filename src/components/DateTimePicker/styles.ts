@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   datePickerContainer: {
-    backgroundColor: theme.colors.lightThreetColor,
+    backgroundColor: theme.colors.lightThreeColor,
     height: 48,
     borderRadius: 10,
     flexDirection: 'row',

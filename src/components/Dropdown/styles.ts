@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     borderWidth: 0.5,
     borderRadius: 10,
-    backgroundColor: theme.colors.lightThreetColor,
+    backgroundColor: theme.colors.lightThreeColor,
     borderColor: theme.colors.darkFourColor,
   },
   overlay: {

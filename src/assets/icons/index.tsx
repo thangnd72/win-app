@@ -1,3 +1,7 @@
+import { View } from 'react-native';
+import theme from '@src/helpers/theme';
+
+// ICONS
 import CheckedIcon from './Checked.svg';
 import UncheckIcon from './Uncheck.svg';
 import CheckedAroundIcon from './CheckedAround.svg';
@@ -6,9 +10,76 @@ import CalendarIcon from './Calendar.svg';
 import ArrowDownIcon from './ArrowDown.svg';
 import EyeIcon from './Eye.svg';
 import EyeOffIcon from './EyeOff.svg';
+import HomeInactiveIcon from './HomeInactive.svg';
+import HomeActiveIcon from './HomeActive.svg';
+import NotificationInactiveIcon from './NotificationInactive.svg';
+import NotificationActiveIcon from './NotificationActive.svg';
+import ProfileActiveIcon from './ProfileActive.svg';
+import ProfileInactiveIcon from './ProfileInactive.svg';
+import EventActiveIcon from './EventActive.svg';
+import EventInactiveIcon from './EventInactive.svg';
+import AddEventIcon from './AddEvent.svg';
 
 const ShowHidePasswordIcon = ({ show = false }: { show: boolean }) =>
   show ? <EyeIcon /> : <EyeOffIcon />;
+
+const HomeTabIcon = ({ focused }: { focused: boolean }) =>
+  focused ? (
+    <View style={{ padding: 10, backgroundColor: theme.colors.bgTabBar, borderRadius: 10 }}>
+      <HomeActiveIcon />
+    </View>
+  ) : (
+    <HomeInactiveIcon />
+  );
+
+const NotiTabIcon = ({ focused }: { focused: boolean }) =>
+  focused ? (
+    <View
+      style={{
+        padding: 10,
+        backgroundColor: theme.colors.bgTabBar,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <NotificationActiveIcon style={{ marginLeft: 4, marginTop: 3, marginRight: -2 }} />
+    </View>
+  ) : (
+    <NotificationInactiveIcon />
+  );
+
+const ProfileTabIcon = ({ focused }: { focused: boolean }) =>
+  focused ? (
+    <View
+      style={{
+        padding: 10,
+        backgroundColor: theme.colors.bgTabBar,
+        borderRadius: 10,
+        alignItems: 'center',
+      }}
+    >
+      <ProfileActiveIcon />
+    </View>
+  ) : (
+    <ProfileInactiveIcon />
+  );
+
+const EventTabIcon = ({ focused }: { focused: boolean }) =>
+  focused ? (
+    <View
+      style={{
+        padding: 10,
+        backgroundColor: theme.colors.bgTabBar,
+        borderRadius: 10,
+        alignItems: 'center',
+      }}
+    >
+      <EventActiveIcon style={{ marginLeft: 4, marginTop: 3, marginRight: -2 }} />
+    </View>
+  ) : (
+    <EventInactiveIcon />
+  );
 
 export {
   CheckedIcon,
@@ -20,4 +91,9 @@ export {
   EyeIcon,
   EyeOffIcon,
   ShowHidePasswordIcon,
+  HomeTabIcon,
+  NotiTabIcon,
+  ProfileTabIcon,
+  EventTabIcon,
+  AddEventIcon,
 };

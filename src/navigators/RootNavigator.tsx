@@ -11,6 +11,10 @@ import { ToastError, ToastSuccess } from '@src/components/Toast';
 import { HomeScreen } from '@src/screens';
 import theme from '@src/helpers/theme';
 import Toast from 'react-native-toast-message';
+import { ROUTES } from './RouteName';
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
+import GuestNavigation from './GuestNavigation';
+import AppNavigation from './AppNavigation';
 const Stack = createStackNavigator();
 
 const navTheme = {
@@ -36,7 +40,14 @@ const RootNavigator = React.memo(() => {
       <StatusBar barStyle={'dark-content'} translucent={true} backgroundColor='transparent' />
       <NavigationContainer ref={navigationRef} theme={navTheme}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name='Home' component={HomeScreen} />
+          {/* <Stack.Screen
+            name={ROUTES.GUEST_NAVIGATION}
+            component={gestureHandlerRootHOC(GuestNavigation)}
+          /> */}
+          <Stack.Screen
+            name={ROUTES.APP_NAVIGATION}
+            component={gestureHandlerRootHOC(AppNavigation)}
+          />
         </Stack.Navigator>
       </NavigationContainer>
       <Toast config={toastConfig} position='bottom' />

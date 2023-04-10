@@ -1,5 +1,6 @@
 enum Colors {
-  mainColor = '#FF9739',
+  mainColor = '#ff8b99',
+  bgTabBar = 'rgb(255,243,246)',
   mainDarkerColor = '#F18916',
   mainLighterColor = '#FFB767',
   mainSubtleColor = '#FFEBD5',
@@ -10,15 +11,16 @@ enum Colors {
   darkTwoColor = '#595F6A',
   darkThreeColor = '#797980',
   darkFourColor = '#AFB0B8',
-  lightOnetColor = '#D3D3D3',
-  lightTwotColor = '#E0E0E0',
-  lightThreetColor = '#ECECEC',
+  lightOneColor = '#D3D3D3',
+  lightTwoColor = '#E0E0E0',
+  lightThreeColor = '#ECECEC',
   lightFourColor = '#F9F9F9',
   lightFiveColor = '#FFFFFF',
-  backgroundColor = '#E5E5E5',
+  backgroundColor = '#FFFFFF',
   modalColor = 'rgba(0,0,0,0.3)',
   bgSuccessColor = '#E6FBF3',
   bgErrorColor = '#FF7777',
+  transparent = 'transparent',
 }
 
 enum Fonts {
