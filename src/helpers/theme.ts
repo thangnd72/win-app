@@ -17,6 +17,8 @@ enum Colors {
   lightFiveColor = '#FFFFFF',
   backgroundColor = '#E5E5E5',
   modalColor = 'rgba(0,0,0,0.3)',
+  bgSuccessColor = '#E6FBF3',
+  bgErrorColor = '#FF7777',
 }
 
 enum Fonts {
