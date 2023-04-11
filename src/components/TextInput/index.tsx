@@ -25,7 +25,7 @@ interface ITextInputComponentProps {
   rightLabel?: string;
   placeHolder?: string;
   textValue?: string;
-  onChangeValue: (text: string) => void;
+  onChangeValue?: (text: string) => void;
   keyboardType?: KeyboardTypeOptions;
   customTextInputStyle?: Pick<TextInputProps, 'style'>;
   multiline?: boolean;
@@ -35,6 +35,7 @@ interface ITextInputComponentProps {
   type?: ETypeField;
   editable?: boolean;
   onPressIn?: (e: NativeSyntheticEvent<NativeTouchEvent>) => void;
+  iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
   wrapperStyle?: ViewStyle;
 }
@@ -56,6 +57,7 @@ const TextInputComponent: React.FC<ITextInputComponentProps> = React.memo(
     textValue,
     onPressIn,
     iconRight,
+    iconLeft,
     wrapperStyle,
   }) => {
     const [hidden, setHidden] = React.useState(false);
@@ -91,6 +93,12 @@ const TextInputComponent: React.FC<ITextInputComponentProps> = React.memo(
         verticalAlign: 'top',
       };
     }
+    if (!iconLeft) {
+      textInputStyle = {
+        ...textInputStyle,
+        paddingLeft: 16,
+      };
+    }
 
     return (
       <View style={wrapperStyle}>
@@ -99,6 +107,7 @@ const TextInputComponent: React.FC<ITextInputComponentProps> = React.memo(
           {rightLabel && <AppText style={styles.rightLabel}>{rightLabel}</AppText>}
         </View>
         <View style={containerStyle}>
+          {iconLeft && <View style={styles.iconRight}>{iconLeft}</View>}
           <TextInput
             value={textValue && textValue != '' ? textValue : value}
             keyboardType={keyboardType as any}

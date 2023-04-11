@@ -19,6 +19,9 @@ import ProfileInactiveIcon from './ProfileInactive.svg';
 import EventActiveIcon from './EventActive.svg';
 import EventInactiveIcon from './EventInactive.svg';
 import AddEventIcon from './AddEvent.svg';
+import SearchIcon from './Search.svg';
+import FilterIcon from './Filter.svg';
+import ArrowRightIcon from './ArrowRight.svg';
 
 const ShowHidePasswordIcon = ({ show = false }: { show: boolean }) =>
   show ? <EyeIcon /> : <EyeOffIcon />;
@@ -96,4 +99,7 @@ export {
   ProfileTabIcon,
   EventTabIcon,
   AddEventIcon,
+  SearchIcon,
+  FilterIcon,
+  ArrowRightIcon,
 };

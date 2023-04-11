@@ -4,18 +4,16 @@ import React from 'react';
 import { EAppScreenList } from '@navigators/RouteName';
 
 //screens && components
-import { HomeStackScreen } from '@src/screens';
+import HomeStackScreen from '@navigators/AppNavigation/HomeStackNavigator';
 
 //other imports
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import { Image, ViewStyle } from 'react-native';
+import { ViewStyle } from 'react-native';
 
-import { SIZE } from '@src/helpers/size';
 import theme from '@src/helpers/theme';
 
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   AddEventIcon,
   EventTabIcon,
@@ -23,12 +21,17 @@ import {
   NotiTabIcon,
   ProfileTabIcon,
 } from '@src/assets/icons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const notShowBottomTabScreens: string[] = [];
 const Tab = createBottomTabNavigator();
 
 export type AppStackParam = {
-  HOME_SCREEN: undefined;
+  HOME_STACK_SCREEN: undefined;
+  EVENT_STACK_SCREEN: undefined;
+  ADD_EVENT_STACK_SCREEN: undefined;
+  NOTIFICATION_STACK_SCREEN: undefined;
+  SETTING_STACK_SCREEN: undefined;
 };
 
 const AppNavigation = React.memo(() => {
@@ -48,27 +51,31 @@ const AppNavigation = React.memo(() => {
     {
       name: EAppScreenList.HOME_STACK_SCREEN,
       component: HomeStackScreen,
+      tabBarLabel: 'Home',
       tabBarIcon: HomeTabIcon,
     },
     {
       name: EAppScreenList.EVENT_STACK_SCREEN,
       component: HomeStackScreen,
-
+      tabBarLabel: 'Events',
       tabBarIcon: EventTabIcon,
     },
     {
       name: EAppScreenList.ADD_EVENT_STACK_SCREEN,
       component: HomeStackScreen,
+      tabBarLabel: 'AddEvents',
       tabBarIcon: AddEventIcon,
     },
     {
       name: EAppScreenList.NOTIFICATION_STACK_SCREEN,
       component: HomeStackScreen,
+      tabBarLabel: 'Notification',
       tabBarIcon: NotiTabIcon,
     },
     {
       name: EAppScreenList.SETTING_STACK_SCREEN,
       component: HomeStackScreen,
+      tabBarLabel: 'Settings',
       tabBarIcon: ProfileTabIcon,
     },
   ];
@@ -91,7 +98,7 @@ const AppNavigation = React.memo(() => {
         },
       }}
     >
-      {tabBarList.map(({ name, component, tabBarIcon }, index) => {
+      {tabBarList.map(({ name, component, tabBarIcon, tabBarLabel }, index) => {
         return (
           <Tab.Screen
             key={`${index}`}
@@ -109,6 +116,7 @@ const AppNavigation = React.memo(() => {
                 return defaultTabBarStyle;
               })(route),
               tabBarIcon: tabBarIcon,
+              tabBarLabel: tabBarLabel,
             })}
           />
         );

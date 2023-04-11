@@ -9,18 +9,22 @@ enum Colors {
   successColor = '#0FDE82',
   darkOneColor = '#333333',
   darkTwoColor = '#595F6A',
-  darkThreeColor = '#797980',
+  darkThreeColor = '#c6c6c6',
   darkFourColor = '#AFB0B8',
+  darkFiveColor = '#D2D7DD',
   lightOneColor = '#D3D3D3',
   lightTwoColor = '#E0E0E0',
   lightThreeColor = '#ECECEC',
   lightFourColor = '#F9F9F9',
   lightFiveColor = '#FFFFFF',
+  greenOneColor = '#e0f5e5',
+  greenTwoColor = '#93dba3',
   backgroundColor = '#FFFFFF',
   modalColor = 'rgba(0,0,0,0.3)',
   bgSuccessColor = '#E6FBF3',
   bgErrorColor = '#FF7777',
   transparent = 'transparent',
+  black = '#000000',
 }
 
 enum Fonts {

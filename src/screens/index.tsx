@@ -1,3 +1,5 @@
 // Home
-export { default as HomeStackScreen } from '@screens/Home.HomeStackScreen/index';
-export { default as HomeScreen } from '@screens/Home.HomeScreen/HomeScreen';
+export { default as HomeScreen } from '@screens/Home/HomeScreen';
+
+// Auth
+export { default as SignUpScreen } from '@screens/Auth/SignUp/SignUp';

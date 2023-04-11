@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native';
 
 class HomeScreenStyles {
   private static _styles = StyleSheet.create({
-    container: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+    container: { flex: 1, paddingHorizontal: 16 },
     text: {
-      fontFamily: theme.fonts.openSansSemiLight,
-      fontSize: 28,
+      paddingVertical: 16,
+      fontFamily: theme.fonts.openSansBold,
     },
   });
 
