@@ -55,7 +55,12 @@ class HomeScreenStyles {
       marginTop: 20,
     },
     wrapperEvent: {
+      flex: 1,
       width: SIZE.SCREEN_WIDTH - theme.spacing.horizontalDefault,
+      paddingVertical: 20,
+    },
+    wrapSuggestedEvent: {
+      paddingVertical: 8,
     },
   });
 

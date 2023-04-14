@@ -1,10 +1,11 @@
 import React from 'react';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import { EHomeScreenList } from '@navigators/RouteName';
-import { HomeScreen } from '@src/screens';
+import { HomeScreen, EventDetailScreen } from '@src/screens';
 
 export type THomeStack = {
   [EHomeScreenList.HOME_SCREEN]: undefined;
+  [EHomeScreenList.EVENT_DETAIL_SCREEN]: undefined;
 };
 
 const HomeStackScreen = React.memo(() => {
@@ -20,6 +21,11 @@ const HomeStackScreen = React.memo(() => {
         name={EHomeScreenList.HOME_SCREEN}
         options={{ ...TransitionPresets.BottomSheetAndroid }}
         component={HomeScreen}
+      />
+      <Stack.Screen
+        name={EHomeScreenList.EVENT_DETAIL_SCREEN}
+        options={{ ...TransitionPresets.SlideFromRightIOS }}
+        component={EventDetailScreen}
       />
     </Stack.Navigator>
   );

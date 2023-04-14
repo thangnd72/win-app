@@ -7,7 +7,10 @@ import { AppText, FastImage, TabBar } from '@src/components';
 import theme from '@src/helpers/theme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import EventItem from './components/EventItem/EventItem';
+import EventSuggested from './components/EventSuggested/EventSuggested';
 import { SIZE } from '@src/helpers/size';
+import GlobalNavigation from '@src/helpers/GlobalNavigation';
+import { EventScreenList } from '@src/navigators/RouteName';
 
 const HomeScreen = React.memo(() => {
   const [selectedTabIndex, setSelectedTabIndex] = React.useState<number>(0);
@@ -17,8 +20,12 @@ const HomeScreen = React.memo(() => {
     setSelectedTabIndex(tabIndex);
   }, []);
 
+  const goToEventDetail = React.useCallback(() => {
+    GlobalNavigation.navigate(EventScreenList.EVENT_DETAIL_SCREEN);
+  }, []);
+
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={[styles.headerWrapper, { marginTop: insets.top + 16 }]}>
         <View>
           <AppText size={16} color={theme.colors.darkThreeColor}>
@@ -60,7 +67,24 @@ const HomeScreen = React.memo(() => {
         {[1, 2, 3, 4, 5].map((item, index) => {
           return (
             <View key={index} style={[styles.wrapperEvent, { paddingHorizontal: 10 }]}>
-              <EventItem />
+              <EventItem onPressItem={goToEventDetail} />
+            </View>
+          );
+        })}
+      </ScrollView>
+      <View style={styles.wrapperUpcomingEvent}>
+        <AppText style={styles.upcomingTitle} size={18}>
+          Suggested Events
+        </AppText>
+        <AppText color={theme.colors.mainColor} style={{}}>
+          View All
+        </AppText>
+      </View>
+      <ScrollView showsHorizontalScrollIndicator={false}>
+        {[1, 2, 3].map((item, index) => {
+          return (
+            <View key={index} style={[styles.wrapSuggestedEvent, { paddingHorizontal: 10 }]}>
+              <EventSuggested onPressItem={goToEventDetail} />
             </View>
           );
         })}

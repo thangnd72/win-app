@@ -20,4 +20,13 @@ export enum EAppScreenList {
 
 export enum EHomeScreenList {
   HOME_SCREEN = 'HOME_SCREEN',
+  EVENT_DETAIL_SCREEN = 'EVENT_DETAIL_SCREEN',
+}
+
+export enum EventScreenList {
+  EVENT_DETAIL_SCREEN = 'EVENT_DETAIL_SCREEN',
+}
+
+export enum ESettingScreenList {
+  EVENT_DETAIL_SCREEN = 'EVENT_DETAIL_SCREEN',
 }

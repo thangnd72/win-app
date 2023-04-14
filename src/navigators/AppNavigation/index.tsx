@@ -1,10 +1,11 @@
 import React from 'react';
 
 //constants
-import { EAppScreenList } from '@navigators/RouteName';
+import { EAppScreenList, EHomeScreenList } from '@navigators/RouteName';
 
 //screens && components
 import HomeStackScreen from '@navigators/AppNavigation/HomeStackNavigator';
+import EventStackScreen from '@navigators/AppNavigation/EventStackNavigator';
 
 //other imports
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -23,7 +24,7 @@ import {
 } from '@src/assets/icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const notShowBottomTabScreens: string[] = [];
+const notShowBottomTabScreens: string[] = [EHomeScreenList.EVENT_DETAIL_SCREEN];
 const Tab = createBottomTabNavigator();
 
 export type AppStackParam = {
@@ -56,7 +57,7 @@ const AppNavigation = React.memo(() => {
     },
     {
       name: EAppScreenList.EVENT_STACK_SCREEN,
-      component: HomeStackScreen,
+      component: EventStackScreen,
       tabBarLabel: 'Events',
       tabBarIcon: EventTabIcon,
     },

@@ -22,6 +22,7 @@ import AddEventIcon from './AddEvent.svg';
 import SearchIcon from './Search.svg';
 import FilterIcon from './Filter.svg';
 import ArrowRightIcon from './ArrowRight.svg';
+import ArrowRight2Icon from './ArrowRight2.svg';
 
 const ShowHidePasswordIcon = ({ show = false }: { show: boolean }) =>
   show ? <EyeIcon /> : <EyeOffIcon />;
@@ -102,4 +103,5 @@ export {
   SearchIcon,
   FilterIcon,
   ArrowRightIcon,
+  ArrowRight2Icon,
 };
