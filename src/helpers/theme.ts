@@ -12,6 +12,7 @@ enum Colors {
   darkThreeColor = '#c6c6c6',
   darkFourColor = '#AFB0B8',
   darkFiveColor = '#D2D7DD',
+  darkSixColor = '#8A8A8A',
   lightOneColor = '#D3D3D3',
   lightTwoColor = '#E0E0E0',
   lightThreeColor = '#ECECEC',
