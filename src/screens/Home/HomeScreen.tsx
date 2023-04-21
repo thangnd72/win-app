@@ -66,7 +66,7 @@ const HomeScreen = React.memo(() => {
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {[1, 2, 3, 4, 5].map((item, index) => {
           return (
-            <View key={index} style={[styles.wrapperEvent, { paddingHorizontal: 10 }]}>
+            <View key={index} style={[styles.wrapperEvent, { paddingHorizontal: 16 }]}>
               <EventItem onPressItem={goToEventDetail} />
             </View>
           );
@@ -83,7 +83,7 @@ const HomeScreen = React.memo(() => {
       <ScrollView showsHorizontalScrollIndicator={false}>
         {[1, 2, 3].map((item, index) => {
           return (
-            <View key={index} style={[styles.wrapSuggestedEvent, { paddingHorizontal: 10 }]}>
+            <View key={index} style={[styles.wrapSuggestedEvent, { paddingHorizontal: 16 }]}>
               <EventSuggested onPressItem={goToEventDetail} />
             </View>
           );

@@ -4,8 +4,8 @@ import theme from '@src/helpers/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    height: 48,
-    borderRadius: 50,
+    height: 52,
+    borderRadius: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -14,9 +14,9 @@ export const styles = StyleSheet.create({
   },
   textInput: {
     flex: 1,
-    height: 48,
+    height: 52,
     // paddingLeft: 16,
-    color: theme.colors.darkOneColor,
+    color: theme.colors.darkFourColor,
     fontFamily: theme.fonts.openSansRegular,
     fontSize: 15,
   },

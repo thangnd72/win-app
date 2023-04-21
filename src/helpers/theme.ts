@@ -26,6 +26,7 @@ enum Colors {
   bgErrorColor = '#FF7777',
   transparent = 'transparent',
   black = '#000000',
+  blueOne = '#5669FF',
 }
 
 enum Fonts {
