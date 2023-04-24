@@ -30,7 +30,7 @@ interface ITextInputComponentProps {
   customTextInputStyle?: Pick<TextInputProps, 'style'>;
   multiline?: boolean;
   numberOfLines?: number;
-  errorMessage?: string;
+  errorMessage?: string | boolean;
   onSubmitEditing?: (e: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => void;
   type?: ETypeField;
   editable?: boolean;
@@ -111,7 +111,7 @@ const TextInputComponent: React.FC<ITextInputComponentProps> = React.memo(
           <TextInput
             value={textValue && textValue != '' ? textValue : value}
             keyboardType={keyboardType as any}
-            placeholderTextColor={theme.colors.darkOneColor}
+            placeholderTextColor={theme.colors.lightOneColor}
             style={[textInputStyle]}
             onChangeText={_handleOnchangeText}
             placeholder={placeHolder}

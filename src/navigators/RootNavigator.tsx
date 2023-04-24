@@ -40,10 +40,10 @@ const RootNavigator = React.memo(() => {
       <StatusBar barStyle={'dark-content'} translucent={true} backgroundColor='transparent' />
       <NavigationContainer ref={navigationRef} theme={navTheme}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen
+          {/* <Stack.Screen
             name={ROUTES.APP_NAVIGATION}
             component={gestureHandlerRootHOC(AppNavigation)}
-          />
+          /> */}
           <Stack.Screen
             name={ROUTES.GUEST_NAVIGATION}
             component={gestureHandlerRootHOC(GuestNavigation)}

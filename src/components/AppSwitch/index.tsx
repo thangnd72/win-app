@@ -23,7 +23,7 @@ const AppSwitch: FC<AppSwitchProps> = ({ disabled, active, onValueChange, style 
       switchLeftPx={3}
       switchRightPx={2.5}
       circleActiveColor={theme.colors.lightFiveColor}
-      circleInActiveColor={theme.colors.darkFourColor}
+      circleInActiveColor={theme.colors.lightOneColor}
       backgroundActive={theme.colors.blueOne}
       backgroundInactive={theme.colors.lightFiveColor}
       circleBorderWidth={0}
@@ -33,7 +33,7 @@ const AppSwitch: FC<AppSwitchProps> = ({ disabled, active, onValueChange, style 
       value={active}
       containerStyle={StyleSheet.flatten([
         styles.container,
-        { borderColor: active ? theme.colors.blueOne : theme.colors.darkFourColor },
+        { borderColor: active ? theme.colors.blueOne : theme.colors.lightOneColor },
         style,
       ])}
     />

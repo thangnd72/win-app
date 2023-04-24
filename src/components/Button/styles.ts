@@ -30,6 +30,15 @@ class ButtonStyles {
     outLineText: {
       color: theme.colors.darkOneColor,
     },
+    suffixIcon: {
+      position: 'absolute',
+      left: (SIZE.SCREEN_WIDTH - 80) / 2,
+      padding: 10,
+      borderRadius: 25,
+      backgroundColor: 'rgba(0,0,0,0.1)',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
   });
 
   public static styles = {

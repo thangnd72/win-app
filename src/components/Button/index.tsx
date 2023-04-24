@@ -24,8 +24,9 @@ export interface IProps extends TouchableOpacityProps {
   outline?: boolean;
   disabledOpacity?: number;
   textStyle?: StyleProp<TextStyle>;
-  SuffixComponent?: React.ReactElement;
-  PrefixComponent?: React.ReactElement;
+
+  iconRight?: React.ReactNode;
+  iconLeft?: React.ReactNode;
 }
 
 const Button = ({
@@ -38,10 +39,9 @@ const Button = ({
   loading,
   disabled,
   textStyle,
-  SuffixComponent,
-  PrefixComponent,
   activeOpacity,
   outline,
+  iconRight,
 }: IProps) => {
   return (
     <TouchableOpacity
@@ -58,11 +58,10 @@ const Button = ({
       {loading && <ActivityIndicator size='small' color={loadingIndicatorColor} />}
       {!loading && (
         <View style={[styles.textContainer, bodyStyle]}>
-          {PrefixComponent !== undefined && PrefixComponent}
           <Text style={[styles.buttonText, textStyle, outline ? styles.outLineText : {}]}>
             {text}
           </Text>
-          {SuffixComponent !== undefined && SuffixComponent}
+          {iconRight && <View style={styles.suffixIcon}>{iconRight}</View>}
         </View>
       )}
     </TouchableOpacity>

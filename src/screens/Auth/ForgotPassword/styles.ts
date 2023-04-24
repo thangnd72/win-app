@@ -6,6 +6,12 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 16,
   },
+  containerKeyBoard: {
+    backgroundColor: theme.colors.lightFiveColor,
+  },
+  bodyContainer: {
+    marginTop: 100,
+  },
   backWrapper: {
     width: 40,
     height: 40,
@@ -14,28 +20,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(0,0,0,0.2)',
   },
-  bodyContainer: {
-    marginTop: 60,
-  },
-  signUpTitle: {
+  forgotTitle: {
     fontFamily: theme.fonts.openSansBold,
-    lineHeight: 28,
-    paddingBottom: 15,
+    paddingBottom: 10,
+    lineHeight: 30,
+    alignSelf: 'center',
+  },
+  descriptionText: {
+    color: theme.colors.darkTwoColor,
+    fontSize: 15,
+    alignSelf: 'center',
+    marginHorizontal: 40,
+    textAlign: 'center',
+    paddingBottom: 20,
   },
   wrapperTextInput: {
     paddingVertical: 10,
     borderRadius: 5,
   },
-  signUpBtn: {
+  submitBtn: {
     marginTop: 25,
   },
-  signUpText: {
+  verifyText: {
     fontSize: 15,
     fontFamily: theme.fonts.openSansSemiBold,
-  },
-  alreadyText: {
-    textAlign: 'center',
-    paddingVertical: 30,
   },
 });
 

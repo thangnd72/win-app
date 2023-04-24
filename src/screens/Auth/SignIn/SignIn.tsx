@@ -1,24 +1,54 @@
-import React from 'react';
-import { ScrollView, Switch, TouchableOpacity, View } from 'react-native';
-import { EmailIcon, FilterIcon, LockIcon, LogoIcon, SearchIcon } from '@src/assets/icons';
-import { AppSwitch, AppText, Button, FastImage, TabBar } from '@src/components';
+import { ArrowRight3Icon, EmailIcon, LockIcon, LogoIcon } from '@src/assets/icons';
+import { AppSwitch, AppText, Button } from '@src/components';
 import theme from '@src/helpers/theme';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import React from 'react';
+import { View } from 'react-native';
 
-import { SIZE } from '@src/helpers/size';
-import GlobalNavigation from '@src/helpers/GlobalNavigation';
-import { EventScreenList } from '@src/navigators/RouteName';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { TextInputUI } from '@src/components';
-import styles from './styles';
 import { ETypeField } from '@src/components/TextInput/types';
+import GlobalNavigation from '@src/helpers/GlobalNavigation';
+import { EGuestScreenList } from '@src/navigators/RouteName';
+import { logInFormSchema } from '@src/utils/form-utils';
+import { useFormik } from 'formik';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { ILogInForm } from './SignIn.Modal';
+import styles from './styles';
 
 const SignInScreen = React.memo(() => {
-  const [remember, setRemember] = React.useState(false);
+  const [remember, setRemember] = React.useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
 
   const toggleRememberMe = React.useCallback(() => {
     setRemember((prev) => !prev);
   }, []);
+
+  const handleLogIn = async (values: ILogInForm) => {
+    try {
+      setIsSubmitting(true);
+    } catch (error: any) {
+      console.log(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const { handleSubmit, values, handleChange, errors, touched } = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    onSubmit: handleLogIn,
+    validationSchema: logInFormSchema,
+  });
+
+  const onNavigateForgotPasswordScreen = React.useCallback(() => {
+    GlobalNavigation.navigate(EGuestScreenList.FORGOT_PASSWORD_SCREEN);
+  }, []);
+
+  const onNavigateSignUpScreen = React.useCallback(() => {
+    GlobalNavigation.navigate(EGuestScreenList.SIGN_UP_SCREEN);
+  }, []);
+
   return (
     <KeyboardAwareScrollView
       extraScrollHeight={50}
@@ -34,11 +64,25 @@ const SignInScreen = React.memo(() => {
         </AppText>
       </View>
       <View style={styles.loginForm}>
-        <TextInputUI wrapperStyle={styles.wrapperTextInput} iconLeft={<EmailIcon />} />
+        <AppText size={24} style={styles.signInTitle}>
+          Sign in
+        </AppText>
+        <TextInputUI
+          wrapperStyle={styles.wrapperTextInput}
+          iconLeft={<EmailIcon />}
+          textValue={values.email}
+          onChangeValue={handleChange('email')}
+          errorMessage={touched.email && errors.email}
+          placeHolder='Email'
+        />
         <TextInputUI
           type={ETypeField.PASSWORD}
           wrapperStyle={styles.wrapperTextInput}
           iconLeft={<LockIcon />}
+          textValue={values.password}
+          onChangeValue={handleChange('password')}
+          errorMessage={touched.password && errors.password}
+          placeHolder='Password'
         />
       </View>
       <View style={styles.bodyContainer}>
@@ -46,15 +90,22 @@ const SignInScreen = React.memo(() => {
           <AppSwitch active={remember} onValueChange={toggleRememberMe} />
           <AppText style={styles.rememberText}>Remember Me</AppText>
         </View>
-        <AppText>Forgot Password?</AppText>
+        <AppText onPress={onNavigateForgotPasswordScreen}>Forgot Password?</AppText>
       </View>
       <Button
         text='Sign In'
         buttonColor={theme.colors.blueOne}
         containerStyle={styles.signInBtn}
-      ></Button>
+        textStyle={styles.signInText}
+        loading={isSubmitting}
+        onPress={handleSubmit}
+        iconRight={<ArrowRight3Icon />}
+      />
       <AppText style={styles.noAccountText}>
-        Don't have an account? <AppText color={theme.colors.blueOne}>Sign up</AppText>
+        Don't have an account?{' '}
+        <AppText color={theme.colors.blueOne} onPress={onNavigateSignUpScreen}>
+          Sign up
+        </AppText>
       </AppText>
     </KeyboardAwareScrollView>
   );

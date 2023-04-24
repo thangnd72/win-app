@@ -10,19 +10,18 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: theme.colors.lightTwoColor,
+    borderColor: theme.colors.lightOneColor,
   },
   textInput: {
     flex: 1,
     height: 52,
-    // paddingLeft: 16,
-    color: theme.colors.darkFourColor,
+    color: theme.colors.darkOneColor,
     fontFamily: theme.fonts.openSansRegular,
     fontSize: 15,
   },
   errorText: {
     color: theme.colors.errorColor,
-    fontSize: 15,
+    fontSize: 12,
     paddingTop: 5,
   },
   label: {

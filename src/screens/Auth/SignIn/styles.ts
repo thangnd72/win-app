@@ -1,4 +1,3 @@
-import { SIZE } from '@src/helpers/size';
 import theme from '@src/helpers/theme';
 import { StyleSheet } from 'react-native';
 
@@ -6,7 +5,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
-    justifyContent: 'center',
+    paddingTop: 100,
   },
   containerKeyBoard: {
     backgroundColor: theme.colors.lightFiveColor,
@@ -45,6 +44,15 @@ const styles = StyleSheet.create({
   noAccountText: {
     textAlign: 'center',
     paddingVertical: 30,
+  },
+  signInTitle: {
+    fontFamily: theme.fonts.openSansBold,
+    paddingBottom: 10,
+    lineHeight: 28,
+  },
+  signInText: {
+    fontSize: 15,
+    fontFamily: theme.fonts.openSansSemiBold,
   },
 });
 

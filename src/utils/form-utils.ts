@@ -1,20 +1,28 @@
+import { PASSWORD_REGEX } from '@src/helpers/constants';
 import dayjs from 'dayjs';
 import * as Yup from 'yup';
 
 export const createAccountFormSchema = Yup.object().shape({
+  firstName: Yup.string()
+    .email('Invalid input. Please enter a valid email address')
+    .required('Please enter the first name'),
+  lastName: Yup.string()
+    .email('Invalid input. Please enter a valid email address')
+    .required('Please enter the first name'),
   email: Yup.string()
     .email('Invalid input. Please enter a valid email address')
-    .required('Required'),
+    .required('Please enter the email'),
   password: Yup.string()
     .required('Please enter the password')
     .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,16}$)/,
-      'Password must have at least 8 characters that include at least 1 lowercase character, 1 uppercase character, 1 number, and 1 special character, maximum number of characters is 16',
+      PASSWORD_REGEX,
+      'Your password MUST have at least one UPPERCASE character and one Special (Non-Alphanumeric) character (eg. ! @ # $ % ^ & * )',
     ),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password')], 'Password does not match')
-    .required('Please enter the password again'),
-  termsAccepted: Yup.bool().oneOf([true], 'The terms and conditions must be accepted'),
+  confirmPassword: Yup.string().oneOf(
+    [Yup.ref('password')],
+    'Password is not match. Please try again!',
+  ),
+  // termsAccepted: Yup.bool().oneOf([true], 'The terms and conditions must be accepted'),
 });
 
 export const yourInformationSchema = Yup.object().shape({
@@ -46,4 +54,35 @@ export const yourInformationSchema = Yup.object().shape({
   address: Yup.string()
     .max(255, 'The maximum length for this field is 255 characters')
     .required('Please enter the address'),
+});
+
+export const logInFormSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Invalid input. Please enter a valid email address')
+    .required('Please enter your email'),
+  password: Yup.string()
+    .matches(
+      PASSWORD_REGEX,
+      'Your password MUST have at least one UPPERCASE character and one Special (Non-Alphanumeric) character (eg. ! @ # $ % ^ & * )',
+    )
+    .required('Please enter your password'),
+});
+
+export const forgotPasswordSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Invalid input. Please enter a valid email address')
+    .required('Please enter your email'),
+});
+
+export const createNewPasswordSchema = Yup.object().shape({
+  password: Yup.string()
+    .matches(
+      PASSWORD_REGEX,
+      'Your password MUST have at least one UPPERCASE character and one Special (Non-Alphanumeric) character (eg. ! @ # $ % ^ & * )',
+    )
+    .required('Please enter your password'),
+  confirmPassword: Yup.string().oneOf(
+    [Yup.ref('password'), undefined],
+    'Password is not match. Please try again!',
+  ),
 });

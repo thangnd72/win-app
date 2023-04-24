@@ -23,6 +23,7 @@ import SearchIcon from './Search.svg';
 import FilterIcon from './Filter.svg';
 import ArrowRightIcon from './ArrowRight.svg';
 import ArrowRight2Icon from './ArrowRight2.svg';
+import ArrowRight3Icon from './ArrowRight3.svg';
 import ClockIcon from './Clock.svg';
 import Calendar2Icon from './Calendar2.svg';
 import ArrowLeftIcon from './ArrowLeft.svg';
@@ -118,4 +119,5 @@ export {
   LogoIcon,
   EmailIcon,
   LockIcon,
+  ArrowRight3Icon,
 };
